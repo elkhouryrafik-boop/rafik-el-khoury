@@ -47,6 +47,16 @@ export const projects: Project[] = [
     scene: "naturegooddest",
     sizzleSrc: "/videos/sizzle-naturegooddest.mp4",
     images: [
+      {
+        src: "/assets/naturegooddest/bcn-vulnerability-screen.jpg",
+        caption:
+          "COOLSTOCK Layer 2 (Spatial Engine) — Barcelona person-weighted heat-vulnerability screen from the official Atles de Resiliència · Calor. Plaça dels Àngels ranks #48 of 1061 census sections.",
+      },
+      {
+        src: "/assets/naturegooddest/cool-allocation-placa.jpg",
+        caption:
+          "MAX_COOLING run on Plaça dels Àngels — €400k budget, 11 patches placed (evaporative + living + shade structure), ΔUTCI 1.22 °C, €288,331 per °C cooled, heat-aim 0.956. Sitte-veto cells (S05/S11) excluded from intervention.",
+      },
       { src: "/assets/naturegooddest/hero.png", caption: "Design v1 — Plaça dels Àngels hero state" },
       { src: "/assets/naturegooddest/multipattern-kpis.png", caption: "Multipattern explorer with KPIs" },
       { src: "/assets/naturegooddest/speckle-best-cooling.png", caption: "Speckle render — best-cooling option, NSGA-II Pareto pick" },
