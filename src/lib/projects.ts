@@ -10,6 +10,8 @@ export type Project = {
   stack: string[];
   scene: "naturegooddest" | "gigai" | "archai";
   sizzleSrc: string;
+  demoSrc?: string;
+  demoCaption?: string;
   images: { src: string; caption: string }[];
   status: "Active" | "Shipped" | "Active research";
   links: { label: string; href: string }[];
@@ -113,6 +115,8 @@ export const projects: Project[] = [
     stack: ["Python", "ChromaDB", "GPT-4o-mini", "Pandas", "n8n", "Rhino"],
     scene: "archai",
     sizzleSrc: "/videos/sizzle-archai.mp4",
+    demoSrc: "/videos/archai-demo.mp4",
+    demoCaption: "Live demo · Begues, Catalonia · OSM buildings + compliance overlay · click any footprint for plantas, altura, área huella, superficie construida.",
     images: [],
     status: "Shipped",
     links: [

@@ -193,6 +193,33 @@ export function ProjectCard({ project }: { project: Project }) {
 
           {/* R3F scene + image strip — right 6 */}
           <div className="col-span-12 space-y-4 md:col-span-6">
+            {project.demoSrc && (
+              <>
+                <SizzleVideo
+                  src={project.demoSrc}
+                  label={`Live demo for ${project.shortName}.`}
+                  autoPlay
+                  showControls
+                  numberLabel={`${project.number}-demo`}
+                  shortName={`${project.shortName} · LIVE DEMO`}
+                />
+                {project.demoCaption && (
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "var(--fs-micro)",
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "var(--ink-3)",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {project.demoCaption}
+                  </p>
+                )}
+              </>
+            )}
+
             <div
               className="aspect-[4/3] w-full border"
               style={{ borderColor: "var(--rule)" }}
