@@ -126,7 +126,7 @@ export function Colophon() {
         }}
       >
         <span>© Rafik El Khoury · 2026</span>
-        <span>Source: github.com/elkhouryrafik-boop</span>
+        <span>Source: github.com/elkhouryrafik-boop/rafik-el-khoury</span>
         <span>Tmrt is not a typo · It is the mean radiant temperature</span>
       </div>
     </section>
