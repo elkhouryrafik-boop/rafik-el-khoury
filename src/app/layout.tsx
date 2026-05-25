@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   title: "Rafik El Khoury — AI Engineer for the Built Environment",
   description:
     "Civil engineer, urban planner, and AI researcher at IAAC. Building tools for automated compliance checking, project-manager communication pipelines, and augmented regenerative design.",
-  metadataBase: new URL("https://rafik.pages.dev"),
+  metadataBase: new URL("https://rafik-el-khoury.pages.dev"),
   openGraph: {
     title: "Rafik El Khoury — AI Engineer for the Built Environment",
     description:
