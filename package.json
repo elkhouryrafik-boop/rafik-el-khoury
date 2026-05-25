@@ -6,18 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "remotion:studio": "remotion studio remotion/index.tsx",
+    "remotion:render": "npm run remotion:render:intro && npm run remotion:render:ng && npm run remotion:render:gigai && npm run remotion:render:archai",
+    "remotion:render:intro": "remotion render remotion/index.tsx intro-reel public/videos/intro-reel.mp4",
+    "remotion:render:ng": "remotion render remotion/index.tsx sizzle-naturegooddest public/videos/sizzle-naturegooddest.mp4",
+    "remotion:render:gigai": "remotion render remotion/index.tsx sizzle-gigai public/videos/sizzle-gigai.mp4",
+    "remotion:render:archai": "remotion render remotion/index.tsx sizzle-archai public/videos/sizzle-archai.mp4"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@remotion/cli": "^4.0.465",
+    "@remotion/player": "^4.0.465",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.23",
     "next": "16.2.6",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "remotion": "^4.0.465",
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.184.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",

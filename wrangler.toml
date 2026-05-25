@@ -1,0 +1,19 @@
+name = "portfolio"
+compatibility_date = "2025-09-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+# Cloudflare Pages deployment for a Next.js app.
+#
+# One-time setup:
+#   1. npm i -D @cloudflare/next-on-pages
+#   2. Add to package.json scripts:
+#        "pages:build": "npx @cloudflare/next-on-pages",
+#        "preview:cf":  "wrangler pages dev .vercel/output/static",
+#        "deploy:cf":   "wrangler pages deploy .vercel/output/static --project-name portfolio"
+#   3. Push to GitHub, then in Cloudflare dashboard:
+#        Pages → Create → Connect to Git → select the portfolio repo
+#        Build command:   npx @cloudflare/next-on-pages
+#        Output dir:      .vercel/output/static
+#        Env vars:        FAL_KEY
+#   4. (Optional later) attach a custom domain in the Pages settings.

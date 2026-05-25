@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color tokens — brutalist register */
+  --paper: #F4F1EA;
+  --ink: #111111;
+  --ink-2: #2F3437;
+  --ink-3: #5A5A55;
+  --rule: rgba(17, 17, 17, 0.22);
+  --accent: #C8362D;
+  --accent-ink: #F4F1EA;
+
+  /* Type scale */
+  --fs-display: clamp(4rem, 10vw, 11rem);
+  --fs-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --fs-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --fs-body: 1.0625rem;
+  --fs-meta: 0.8125rem;
+  --fs-micro: 0.6875rem;
+
+  --lh-display: 1.05;
+  --lh-body: 1.6;
+  --lh-mono: 1.4;
+
+  --container: 1440px;
+  --grid-gap: 1.5rem;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 120ms;
+  --dur-base: 280ms;
+  --dur-slow: 600ms;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (prefers-reduced-motion: reduce) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
   }
 }
 
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --container-site: var(--container);
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  scroll-padding-top: 88px;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), Georgia, serif;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 767px) {
+  body { padding-bottom: 64px; }
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Focus ring — never strip */
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -10rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono), monospace;
+  font-size: var(--fs-meta);
+  z-index: 100;
+  transition: top var(--dur-fast) var(--ease-out);
+}
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+/* Custom cursor — desktop only */
+@media (pointer: fine) {
+  body { cursor: none; }
 }

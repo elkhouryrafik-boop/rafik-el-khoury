@@ -20,6 +20,23 @@
 # production
 /build
 
+# dev logs
+.dev*.log
+.remotion*.log
+
+# audit artifacts (kept locally, not in repo)
+docs/audit-screenshots/
+docs/audit-v2/
+docs/audit-final/
+docs/qa-final/
+
+# wrangler / cloudflare
+.wrangler/
+
+# backup assets
+public/assets/*.bak
+public/assets/*.jpg.bak
+
 # misc
 .DS_Store
 *.pem

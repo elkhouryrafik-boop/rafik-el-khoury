@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Brutalist hero placeholder">
+  <rect width="1600" height="900" fill="#F4F1EA"/>
+  <!-- Grid -->
+  <g stroke="#111111" stroke-opacity="0.12" stroke-width="1">
+    <line x1="0" y1="225" x2="1600" y2="225"/>
+    <line x1="0" y1="450" x2="1600" y2="450"/>
+    <line x1="0" y1="675" x2="1600" y2="675"/>
+    <line x1="400" y1="0" x2="400" y2="900"/>
+    <line x1="800" y1="0" x2="800" y2="900"/>
+    <line x1="1200" y1="0" x2="1200" y2="900"/>
+  </g>
+  <!-- Wireframe building -->
+  <g stroke="#111111" stroke-width="1.5" fill="none">
+    <rect x="540" y="200" width="520" height="500"/>
+    <line x1="540" y1="280" x2="1060" y2="280"/>
+    <line x1="540" y1="360" x2="1060" y2="360"/>
+    <line x1="540" y1="440" x2="1060" y2="440"/>
+    <line x1="540" y1="520" x2="1060" y2="520"/>
+    <line x1="540" y1="600" x2="1060" y2="600"/>
+    <line x1="660" y1="200" x2="660" y2="700"/>
+    <line x1="800" y1="200" x2="800" y2="700"/>
+    <line x1="940" y1="200" x2="940" y2="700"/>
+    <!-- Isometric extrusion -->
+    <line x1="540" y1="200" x2="640" y2="120"/>
+    <line x1="1060" y1="200" x2="1160" y2="120"/>
+    <line x1="1060" y1="700" x2="1160" y2="620"/>
+    <line x1="640" y1="120" x2="1160" y2="120"/>
+    <line x1="1160" y1="120" x2="1160" y2="620"/>
+  </g>
+  <!-- Violation marker -->
+  <circle cx="940" cy="440" r="10" fill="#C8362D"/>
+  <!-- Crosshair -->
+  <g stroke="#111111" stroke-width="1" fill="none">
+    <line x1="940" y1="420" x2="940" y2="460"/>
+    <line x1="920" y1="440" x2="960" y2="440"/>
+  </g>
+  <!-- Meta strip -->
+  <g font-family="monospace" font-size="14" fill="#787774" letter-spacing="2">
+    <text x="60" y="60">— PORTFOLIO / 2026</text>
+    <text x="60" y="860">FIG. 00 — HERO PLATE · PLACEHOLDER · WIRES SHOWN FOR SCALE</text>
+    <text x="1540" y="60" text-anchor="end">BARCELONA · ATHENS · BEIRUT</text>
+    <text x="1540" y="860" text-anchor="end">PRESS &#x21BB; TO REGENERATE</text>
+  </g>
+</svg>
