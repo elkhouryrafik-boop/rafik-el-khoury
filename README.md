@@ -1,6 +1,6 @@
 # Portfolio — Rafik El Khoury
 
-Personal marketing site for an AI engineer for the built environment.
+Personal Website for an AI engineer for the built environment.
 
 Stack:
 
