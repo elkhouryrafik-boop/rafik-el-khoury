@@ -1,0 +1,9 @@
+name = "rafik-el-khoury"
+compatibility_date = "2025-09-23"
+
+# Cloudflare Workers Static Assets — serve the Next.js static-export bundle.
+# Build command (`npx next build`) produces ./out, which wrangler uploads as the
+# Worker's asset bundle and Cloudflare serves directly from the edge.
+[assets]
+directory = "./out"
+not_found_handling = "404-page"
