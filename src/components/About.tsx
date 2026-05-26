@@ -54,85 +54,63 @@ export function About() {
           style={{ fontSize: "1.125rem", lineHeight: 1.65, color: "var(--ink-2)" }}
         >
           <p>
-            My path into the built environment was inherited before it was
-            chosen. My grandfather founded{" "}
-            <em>Rafik El-Khoury &amp; Partners</em> in <strong>1967</strong>,
-            and my father carried it forward. At seventeen I had no real idea
-            what I wanted to do, but I had been raised inside that story — so I
-            went to <strong>Loughborough</strong> to study civil engineering
-            because that was the family vocabulary.
+            The family business — <em>Rafik El-Khoury &amp; Partners</em>,
+            founded in <strong>1967</strong> — is a consulting engineering
+            practice with offices in Lebanon, Saudi Arabia, and Iraq, and
+            remote project work across Africa. I grew up inside that story, so
+            I went to <strong>Loughborough</strong> to study civil engineering.
           </p>
           <p>
             In my final year my dissertation on{" "}
             <strong>Natural Flood Management</strong> changed everything. It
             was the first time I saw the ecosystem as one connected system —
             where rivers, soils, vegetation, and human settlement are
-            interlocking variables rather than separate disciplines, and where
-            working <em>with</em> those connections produces better outcomes
-            than working against them.
+            interlocking variables, and working <em>with</em> those connections
+            produces better outcomes than working against them.
           </p>
           <p>
             I chased that thread. I took a{" "}
-            <strong>Permaculture Design Course</strong>, spent a few months
-            volunteering on two farms in Greece, and did an internship with an
-            agricultural company — learning soil, plant taxonomy, and fungi
-            from people who treat the ground as a living instrument rather
-            than a substrate to pour concrete onto.
+            <strong>Permaculture Design Course</strong>, volunteered on farms
+            in Greece, and interned with an agricultural company — learning
+            soil, plant taxonomy, and fungi from people who treat the ground as
+            a living instrument rather than a substrate to pour concrete onto.
           </p>
           <p>
             That pulled me toward <strong>urbanism</strong>. At the{" "}
             <strong>University of Dundee</strong> I worked through a
             research-by-design masterplan on the city&apos;s urban-rural fringe
-            — biophilic principles, master-planning fundamentals, a final
-            scheme that absorbed everything we had researched. I was honest
-            with myself: I was theoretical, not tool-fluent. I wasn&apos;t
-            very proficient in modelling and drawing tools — Revit, BIM,
-            AutoCAD, SketchUp. The ideas were there; the production was slow.
+            — biophilic principles, master-planning fundamentals. I was honest
+            with myself: the ideas were there, but the production tooling was
+            slow.
           </p>
           <p>
-            I went to <strong>Abu Dhabi</strong> to work with my
-            father&apos;s office. I assisted across whatever came through —
-            shadowing the urban designer on masterplans across the emirate,
-            park briefs in Madinat Al-Riyadh, villa redesigns, and brief
-            evaluations on a 19 km² island project. Then back to{" "}
-            <strong>Lebanon</strong>, where I assisted on concept design for
-            roughly <strong>25 war-damaged schools</strong>, calibrating each
-            rebuild to the damage profile it had survived. The work was
-            meaningful, and the gap was unmistakable: the discipline needed
-            faster, more technological, more data-driven tools.
+            I went to <strong>Abu Dhabi</strong> to work with the family
+            business — shadowing the urban designer on masterplans across the
+            emirate, park briefs, villa redesigns, and a 19 km² island
+            evaluation. Then back to <strong>Lebanon</strong>, where I
+            contributed to concept design for roughly{" "}
+            <strong>25 war-damaged schools</strong>, each rebuilt to its
+            specific damage profile. The gap was unmistakable: the discipline
+            needed faster, more data-driven tools.
           </p>
           <p>
-            I had been an early advocate of AI from the moment it became
-            useful. So in <strong>September 2025</strong> I went all in and
-            began a master&apos;s in{" "}
+            In <strong>September 2025</strong> I began a master&apos;s in{" "}
             <strong>AI for Architecture and the Built Environment</strong> at{" "}
             <em>IAAC</em>, Barcelona.
           </p>
           <p>
-            The last eight months have been intensive. I learned to code with
-            AI as my pair — Claude Code, sub-agents, skills, prompt
-            engineering, the boring craft of giving context cleanly so the
-            model actually delivers what I want. In parallel I worked through
-            the canon: <strong>computer vision</strong>,{" "}
-            <strong>neural networks</strong>, classical machine learning, the
-            underlying theory of what these systems can and can&apos;t do — so
-            I could pick the right tool rather than the trendy one.
+            I learned to code with AI as my pair — Claude Code, prompt
+            engineering, the craft of giving context cleanly. In parallel I
+            worked through <strong>computer vision</strong>,{" "}
+            <strong>neural networks</strong>, and classical ML — so I could
+            pick the right tool rather than the trendy one.
           </p>
           <p>
             <strong>This is where it all coheres.</strong> A multidisciplinary
-            background — civil engineer, planner, naturalist, family practice
-            — finally inside a single identity I recognise:{" "}
-            <strong>an engineer who leverages AI and computation</strong> to
-            make the built-environment process more data-driven, more
-            efficient, and more rigorous.
-          </p>
-          <p>
-            The thesis is short.{" "}
-            <em>Yesterday humans built tools for humans. Today computers
-            build tools for humans. Tomorrow humans will build tools for
-            computers.</em>{" "}
-            <strong>AI is not a tool — it is the medium between you and what
-            you want to create.</strong>
+            background — civil engineer, spatial planner, naturalist, family
+            practice — finally inside a single identity: an engineer who
+            leverages AI and computation to make the built-environment process
+            more data-driven, more efficient, and more rigorous.
           </p>
         </div>
       </div>

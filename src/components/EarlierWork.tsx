@@ -35,7 +35,7 @@ const items = [
     ],
   },
   {
-    org: "University of Dundee — MSc Spatial Planning",
+    org: "University of Dundee — MSc Spatial Planning with Sustainable Urban Design",
     role: "Research-by-design dissertation",
     where: "Dundee, Scotland",
     date: "2023—2024",
@@ -51,7 +51,7 @@ const items = [
     bullets: ["Full PDC under Geoff Lawton-lineage instruction."],
   },
   {
-    org: "Loughborough University — BSc Civil Engineering",
+    org: "Loughborough University — BEng Civil Engineering",
     role: "Dissertation: Natural Flood Management",
     where: "Loughborough, UK",
     date: "2018—2022",

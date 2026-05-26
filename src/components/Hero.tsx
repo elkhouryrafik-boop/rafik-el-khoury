@@ -8,7 +8,7 @@ export function Hero() {
   const labelRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const text = "AI ENGINEER · BUILT ENVIRONMENT · CIVIL ENG + URBAN PLANNER + AI RESEARCHER · ";
+    const text = "AI ENGINEER · BUILT ENVIRONMENT · CIVIL ENG + SPATIAL PLANNING + SUSTAINABLE URBAN DESIGN · ";
     const el = labelRef.current;
     if (!el) return;
     el.textContent = text.repeat(6);
@@ -32,7 +32,7 @@ export function Hero() {
         }}
       >
         <span>— Personal site / 2026</span>
-        <span>Barcelona · Athens · Beirut · Open to relocation</span>
+        <span>Barcelona · Beirut · Athens · Abu Dhabi · Open to relocation</span>
       </div>
 
       {/* Hero content — 12-col grid, left text, right media block */}
@@ -172,7 +172,7 @@ export function Hero() {
             color: "var(--ink-3)",
           }}
         >
-          AI ENGINEER · BUILT ENVIRONMENT · CIVIL ENG + URBAN PLANNER + AI RESEARCHER ·
+          AI ENGINEER · BUILT ENVIRONMENT · CIVIL ENG + SPATIAL PLANNING + SUSTAINABLE URBAN DESIGN ·
         </span>
       </div>
     </section>
