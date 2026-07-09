@@ -220,27 +220,31 @@ export function ProjectCard({ project }: { project: Project }) {
               </>
             )}
 
-            <div
-              className="aspect-[4/3] w-full border"
-              style={{ borderColor: "var(--rule)" }}
-            >
-              <SceneFor id={project.scene} />
-            </div>
-            <div
-              className="flex items-baseline justify-between"
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "var(--fs-micro)",
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: "var(--ink-3)",
-              }}
-            >
-              <span>
-                fig. {project.number} — {project.shortName} · R3F scene
-              </span>
-              <span>WebGL · auto-orbit</span>
-            </div>
+            {project.scene && (
+              <>
+                <div
+                  className="aspect-[4/3] w-full border"
+                  style={{ borderColor: "var(--rule)" }}
+                >
+                  <SceneFor id={project.scene} />
+                </div>
+                <div
+                  className="flex items-baseline justify-between"
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "var(--fs-micro)",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "var(--ink-3)",
+                  }}
+                >
+                  <span>
+                    fig. {project.number} — {project.shortName} · R3F scene
+                  </span>
+                  <span>WebGL · auto-orbit</span>
+                </div>
+              </>
+            )}
 
             {project.images.length > 0 && (
               <ImageStrip

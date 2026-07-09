@@ -24,8 +24,8 @@ const archivoBlack = Archivo_Black({
 export const metadata: Metadata = {
   title: "Rafik El Khoury — AI Engineer for the Built Environment",
   description:
-    "Civil engineer, urban planner, and AI researcher at IAAC. Building tools for automated compliance checking, project-manager communication pipelines, and augmented regenerative design.",
-  metadataBase: new URL("https://rafik-el-khoury.pages.dev"),
+    "Civil engineer, urban planner, and AI researcher at IAAC. Building tools for climate-aware festival shade placement, automated compliance checking, and project-manager communication pipelines.",
+  metadataBase: new URL("https://rafik-el-khoury.elkhouryrafik.workers.dev"),
   openGraph: {
     title: "Rafik El Khoury — AI Engineer for the Built Environment",
     description:

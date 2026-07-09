@@ -8,7 +8,7 @@ export type Project = {
   summary: string;
   highlights: string[];
   stack: string[];
-  scene: "naturegooddest" | "gigai" | "archai";
+  scene: "gigai" | "archai" | undefined;
   sizzleSrc: string;
   demoSrc?: string;
   demoCaption?: string;
@@ -19,49 +19,62 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "naturegooddest",
+    id: "festcool",
     number: "01",
-    name: "NatureGooddest / COOLSTOCK",
-    shortName: "NatureGooddest",
+    name: "FestCOOL / U-Shade",
+    shortName: "U-Shade",
     date: "2026",
-    tagline: "Regenerative-design platform",
+    tagline: "Climate-aware festival shade placement",
     summary:
-      "Pattern-language platform that turns a site polygon into a defensible urban-design brief — every recommendation traceable to a theory citation, a verified data source, and a field-validation record. v1 (COOLSTOCK) pitching Ajuntament Barcelona's Refugis Climàtics programme, June 2026.",
+      "Decision-support system that places shade on the cells of a festival site that are simultaneously the hottest and the busiest. Crosses a real UTCI heat grid (infrared.city) with a pedestrian-dynamics crowd field (JuPedSim), solves shade placement as a Maximal Covering Location Problem, and clads each structure in the lowest-transport-carbon reclaimed material the surrounding city already contains. Demoed live on Primavera Sound 2026 at Parc del Fòrum, Barcelona.",
     highlights: [
-      "v1 on Plaça dels Àngels, Barcelona — 3,800 m², Tmrt 58 °C, 27 patterns, NSGA-II Pareto-front shelter configs.",
-      "5-regulation compliance card: EU Taxonomy, CSRD, TNFD, BNG.",
-      "Co-authored the three-citation rule (theory DOI + data provenance + field record). Deterministic generation path; LLM is editor/search only, never in the design loop.",
-      "Team of 4 at IAAC MaAI01, Dir. Emanuele Naboni.",
+      "Demand field = crowd density × thermal excess above a 26 °C UTCI comfort threshold, on a 6 m master lattice. Crowd migrates over a continuous daytime timeline driven by the real festival schedule and Spotify monthly-listener stage popularity.",
+      "Placement solved twice — deterministic greedy heuristic as a permanent lower-bound witness, plus an exact integer program that emits a verifiable optimality certificate. Coverage measured against projected shadows, not footprints.",
+      "Honesty as an engineered property: every reported number carries a provenance tier (grounded / derived / assumed / declared), and the cooling-acceptance gate is hash-locked — editing a threshold to make a run pass fails loudly at run time.",
+      "LLM is a translator, never a designer — parses the free-text brief into typed fields via schema-constrained structured output, retry loop terminated on stop_reason. Every spatial decision is deterministic and auditable.",
+      "Reclaimed materials from Barcelona waste streams selected by transport carbon (recycled cut-off basis); cooling effectiveness scaled by 1 − membrane solar transmissivity. Team of 4 at IAAC MaAI01: Juan, Dominika, Seid, Rafik.",
     ],
     stack: [
       "Python",
-      "Flask",
-      "Neo4j",
-      "OWL/Turtle",
-      "NSGA-II",
-      "pymoo",
-      "Infrared.city",
-      "Open Data BCN",
-      "pgvector",
+      "FastAPI",
+      "infrared.city UTCI",
+      "JuPedSim",
+      "MCLP / ILP",
+      "Mapbox GL",
+      "React + TanStack Start",
+      "TypeScript",
+      "Claude (structured output)",
+      "Rhino.Compute",
+      "Grasshopper",
     ],
-    scene: "naturegooddest",
-    sizzleSrc: "/videos/sizzle-naturegooddest.mp4",
+    scene: undefined,
+    sizzleSrc: "/videos/ushade-demo.mp4",
     images: [
       {
-        src: "/assets/naturegooddest/bcn-vulnerability-screen.jpg",
+        src: "/assets/festcool/ushade-landing.jpg",
         caption:
-          "COOLSTOCK Layer 2 (Spatial Engine) — Barcelona person-weighted heat-vulnerability screen from the official Atles de Resiliència · Calor. Plaça dels Àngels ranks #48 of 1061 census sections.",
+          "U-Shade — cross a real heat grid with a real crowd field. Place shade where it protects the most people.",
       },
       {
-        src: "/assets/naturegooddest/cool-allocation-placa.jpg",
+        src: "/assets/festcool/console-workspace.jpg",
         caption:
-          "MAX_COOLING run on Plaça dels Àngels — €400k budget, 11 patches placed (evaporative + living + shade structure), ΔUTCI 1.22 °C, €288,331 per °C cooled, heat-aim 0.956. Sitte-veto cells (S05/S11) excluded from intervention.",
+          "HeatGuard parametric console — festival brief (capacity, budget, event date, theme prompt) over live satellite of Parc del Fòrum, Barcelona.",
       },
-      { src: "/assets/naturegooddest/hero.png", caption: "Design v1 — Plaça dels Àngels hero state" },
-      { src: "/assets/naturegooddest/multipattern-kpis.png", caption: "Multipattern explorer with KPIs" },
-      { src: "/assets/naturegooddest/speckle-best-cooling.png", caption: "Speckle render — best-cooling option, NSGA-II Pareto pick" },
-      { src: "/assets/naturegooddest/kpi-panel.png", caption: "M5 KPI panel — field-verified outputs" },
-      { src: "/assets/naturegooddest/metrics-utci.png", caption: "Real UTCI metrics — comfort gain map" },
+      {
+        src: "/assets/festcool/ushade-site-setup.png",
+        caption:
+          "Guided setup on the real Primavera Sound 2026 site — 17 stages geolocated from the official festival map.",
+      },
+      {
+        src: "/assets/festcool/materials-catalogue.png",
+        caption:
+          "Reclaimed-material catalogue near the site — datasheet-sourced specs, provenance-tagged, transport CO₂e per m² and solar transmissivity per membrane.",
+      },
+      {
+        src: "/assets/festcool/final-dashboard.jpg",
+        caption:
+          "Final dashboard — Cooling Gate PASS (ΔUTCI 4.8 °C derived, coverage 100%), bill of materials, and provenance badge on every number.",
+      },
     ],
     status: "Active",
     links: [
@@ -141,7 +154,13 @@ export const projects: Project[] = [
     demoSrc: "/videos/archai-demo.mp4",
     demoCaption:
       "Live demo · Begues, Catalonia · OSM buildings + compliance overlay · click any footprint for plantas, altura, área huella, superficie construida.",
-    images: [],
+    images: [
+      {
+        src: "/assets/archai/demo-osm-begues.jpg",
+        caption:
+          "Live OSM prototype on Begues, Catalonia — clickable building footprints surface plantas, altura aproximada, área huella, and superficie construida per edificio.",
+      },
+    ],
     status: "Shipped",
     links: [
       {
@@ -149,6 +168,46 @@ export const projects: Project[] = [
         href: "/reports/archai-compliance-report.pdf",
       },
       { label: "GitHub", href: "https://github.com/elkhouryrafik-boop" },
+    ],
+  },
+  {
+    id: "coolspend",
+    number: "04",
+    name: "CoolSpend",
+    shortName: "CoolSpend",
+    date: "2026",
+    tagline: "3rd Place, Infrared.city Buildathon 2026",
+    summary: "Budget-constrained street-tree placement optimiser for Barcelona — solo build, 3rd place at the Infrared.city Buildathon 2026. Fuses four real datasets (satellite heat + imperviousness, OSM geometry, Barcelona's tree inventory, the population register) into a 494-cell vulnerability grid, treats planting as budgeted weighted maximum coverage over validated slots, and reports cooling measured on live Infrared.city UTCI — never a proxy.",
+    highlights: [
+      "Candidate slots generated on a 4 m lattice with building / street / furniture / 8 m-spacing exclusions from OSM; placed by a cost-benefit greedy carrying the classical (1 − 1/e) ≈ 63% optimality guarantee, with an ecology gate that drops invasive and over-represented species (8-species plantable palette, anti-monoculture cap).",
+      "Measured before/after design: a baseline UTCI run (no trees) builds the demand field — a cell counts only where UTCI > 26 °C ∧ impervious ∧ not already shaded, weighted by UTCI − 26 — then a second live run with the trees reports ΔUTCI as the difference of two measured grids.",
+      "Plaça dels Àngels: 28 trees cooled a measured 4,268 m² at €30/m². Citywide €1M portfolio: 90 trees across 6 separated sites, 20,609 m² cooled, 26,745 residents served, zero invasive species.",
+      "Three-tier Infrared backend (mock / cached / live) chosen server-side so a synthetic preview can't be mistaken for a measured result; a SimBudget guard caps live calls at 3 per run; the greedy terminates on a real stop_reason, not an iteration cap.",
+    ],
+    stack: [
+      "Python",
+      "FastAPI",
+      "numpy",
+      "shapely",
+      "pyproj",
+      "Infrared.city SDK",
+      "React 18 + TypeScript",
+      "deck.gl",
+      "mapbox-gl",
+      "Vite",
+    ],
+    scene: undefined,
+    sizzleSrc: "",
+    images: [
+      {
+        src: "/assets/coolspend/citywide-plan.png",
+        caption:
+          "Citywide €1M plan — 494 blocks scanned, 6 hottest funded first: 90 trees, 20,609 m² measured cooling, 26,745 residents served. 90/90 trees verified on valid ground by an independent OSM re-check.",
+      },
+    ],
+    status: "Shipped",
+    links: [
+      { label: "GitHub", href: "https://github.com/elkhouryrafik-boop/InFraRed-Hackathon-2026" },
     ],
   },
 ];

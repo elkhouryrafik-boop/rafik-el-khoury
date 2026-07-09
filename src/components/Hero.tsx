@@ -75,8 +75,9 @@ export function Hero() {
             }}
           >
             Civil engineer, urban planner, AI researcher at <em>IAAC</em>.
-            Building tools for automated compliance checking, project-manager
-            communication pipelines, and augmented regenerative design.
+            Building tools for climate-aware festival shade placement,
+            automated compliance checking, and project-manager communication
+            pipelines.
             Authorised to work in the <strong>UK</strong>, <strong>EU</strong>,
             and <strong>UAE</strong>.
           </p>
