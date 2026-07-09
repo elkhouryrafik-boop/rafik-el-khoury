@@ -104,9 +104,11 @@ export function About() {
           <p>
             If you decide to work with me, you will realise I am addicted to
             challenging myself and doing hard things — simply because I enjoy
-            it. Solving urban problems is an honour for me: I deeply
-            appreciate the power of planning and urban design to improve life
-            in the city, and to push for{" "}
+            it. That determination doesn&apos;t switch off between projects:
+            I am <strong>already designing software for the family
+            practice</strong>. Solving urban problems is an honour for me: I
+            deeply appreciate the power of planning and urban design to
+            improve life in the city, and to push for{" "}
             <strong>ecological regeneration</strong>, which is dear to my
             heart.
           </p>

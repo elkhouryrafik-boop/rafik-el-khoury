@@ -43,7 +43,7 @@ export function Contact() {
       <SectionLabel number="04">Contact</SectionLabel>
 
       <h2
-        className="mt-6 mb-12 max-w-[20ch]"
+        className="mt-6 mb-8 max-w-[20ch]"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: "var(--fs-h1)",
@@ -53,6 +53,25 @@ export function Contact() {
       >
         Pick a door.
       </h2>
+
+      <div
+        className="mb-12 max-w-[68ch] space-y-4"
+        style={{ fontSize: "1.125rem", lineHeight: 1.65, color: "var(--ink-2)" }}
+      >
+        <p>
+          The projects end; the building doesn&apos;t. I&apos;m already
+          designing software for the family practice —{" "}
+          <em>Rafik El-Khoury &amp; Partners</em> — and I&apos;m{" "}
+          <strong>open to collaboration</strong> where it fits well.
+        </p>
+        <p>
+          If you&apos;re weighing an <strong>internship</strong>, here is the
+          honest pitch: I love building, so I will pour myself into your
+          problem. I learn fast because I genuinely enjoy this — and at the
+          end you won&apos;t just have a tool that works. You&apos;ll have a
+          partner who stays.
+        </p>
+      </div>
 
       {/* Primary CTA — full width, vermilion */}
       <a
