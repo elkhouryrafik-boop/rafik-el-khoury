@@ -5,13 +5,13 @@ export function HeroPlate() {
       style={{ borderColor: "var(--rule)", aspectRatio: "16 / 9" }}
     >
       <video
-        src="/videos/ushade-marketing-30s.mp4"
+        src="/videos/hero-motion.mp4"
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
         muted
         loop
         playsInline
-        aria-label="U-Shade marketing demo — the full product run compressed to thirty seconds: brief in, heat and crowd simulation, shade placement, material plan out."
+        aria-label="Motion study — brutalist concrete architecture at golden hour with vermilion contour annotations drifting across the surfaces."
       />
 
       <figcaption
@@ -26,8 +26,8 @@ export function HeroPlate() {
           borderTop: "1px solid var(--rule)",
         }}
       >
-        <span>fig. 00 — u-shade demo · full run in 30 s</span>
-        <span style={{ color: "var(--ink-3)" }}>muted loop · project 01</span>
+        <span>fig. 00 — motion study · higgsfield / seedance 2.0</span>
+        <span style={{ color: "var(--ink-3)" }}>8 s · muted loop</span>
       </figcaption>
     </figure>
   );

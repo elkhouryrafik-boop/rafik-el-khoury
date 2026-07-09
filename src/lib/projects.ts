@@ -48,7 +48,7 @@ export const projects: Project[] = [
       "Grasshopper",
     ],
     scene: undefined,
-    sizzleSrc: "/videos/ushade-demo.mp4",
+    sizzleSrc: "/videos/ushade-marketing-30s.mp4",
     images: [
       {
         src: "/assets/festcool/slide-title.png",
