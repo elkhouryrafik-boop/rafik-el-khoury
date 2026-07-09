@@ -4,11 +4,14 @@ export function HeroPlate() {
       className="relative w-full overflow-hidden border"
       style={{ borderColor: "var(--rule)", aspectRatio: "16 / 9" }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/assets/ushade-system-diagram.png"
-        alt="U-Shade system diagram — user brief and floor layout flow through an LLM parser and site geometry into climate analysis (Infrared.city API) and crowd simulation (JuPedSim), then an ILP/MCLP placer with UMATS upcycled-material selection, ending in the architect report."
+      <video
+        src="/videos/ushade-marketing-30s.mp4"
         className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-label="U-Shade marketing demo — the full product run compressed to thirty seconds: brief in, heat and crowd simulation, shade placement, material plan out."
       />
 
       <figcaption
@@ -23,8 +26,8 @@ export function HeroPlate() {
           borderTop: "1px solid var(--rule)",
         }}
       >
-        <span>fig. 00 — u-shade system diagram · inputs → analysis → place &amp; clad → output</span>
-        <span style={{ color: "var(--ink-3)" }}>Project 01 · 2026</span>
+        <span>fig. 00 — u-shade demo · full run in 30 s</span>
+        <span style={{ color: "var(--ink-3)" }}>muted loop · project 01</span>
       </figcaption>
     </figure>
   );

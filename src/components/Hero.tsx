@@ -19,6 +19,17 @@ export function Hero() {
       id="top"
       className="relative mx-auto flex min-h-[100dvh] max-w-[1440px] flex-col px-6 pb-8 pt-6 md:px-10 md:pt-8 lg:px-14"
     >
+      {/* Ambient thermal-isoline loop — sits behind everything in the hero */}
+      <video
+        src="/videos/hero-ambient.mp4"
+        className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-[0.16] motion-reduce:hidden"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden
+      />
+
       {/* Top ruled meta strip */}
       <div
         className="flex items-baseline justify-between border-t pt-3"

@@ -51,29 +51,34 @@ export const projects: Project[] = [
     sizzleSrc: "/videos/ushade-demo.mp4",
     images: [
       {
-        src: "/assets/festcool/ushade-landing.jpg",
+        src: "/assets/festcool/slide-title.png",
         caption:
-          "U-Shade — cross a real heat grid with a real crowd field. Place shade where it protects the most people.",
+          "uShade — AI-assisted shading strategies for festivals. IAAC MaAI01, Prof. Emanuele Naboni. Juan Gaitán, Dominika Klopotek, Rafik El Khoury, Seid Burka.",
       },
       {
-        src: "/assets/festcool/console-workspace.jpg",
+        src: "/assets/festcool/slide-why-it-matters.png",
         caption:
-          "HeatGuard parametric console — festival brief (capacity, budget, event date, theme prompt) over live satellite of Parc del Fòrum, Barcelona.",
+          "Why it matters — ≈1 in 60 attendees needs emergency care, 375,000+ on unshaded concrete across Barcelona's festival circuit, 60,000+ EU heat deaths per year.",
       },
       {
-        src: "/assets/festcool/ushade-site-setup.png",
+        src: "/assets/festcool/slide-architecture.png",
         caption:
-          "Guided setup on the real Primavera Sound 2026 site — 17 stages geolocated from the official festival map.",
+          "System architecture — user brief + JuPedSim + infrared.city feed ILP-MCLP (maximise covered demand), the LLM joints data to JSON, RAG searches available materials.",
       },
       {
-        src: "/assets/festcool/materials-catalogue.png",
+        src: "/assets/festcool/slide-jupedsim.png",
         caption:
-          "Reclaimed-material catalogue near the site — datasheet-sourced specs, provenance-tagged, transport CO₂e per m² and solar transmissivity per membrane.",
+          "JuPedSim crowd model — Collision-Free Speed Model, physics not training: georeferenced site → crowd grid snapped to the 6 m lattice → greedy scoring (crowd × (UTCI − 26)) → shade placement feeds ILP-MCLP.",
       },
       {
-        src: "/assets/festcool/final-dashboard.jpg",
+        src: "/assets/festcool/slide-design1.png",
         caption:
-          "Final dashboard — Cooling Gate PASS (ΔUTCI 4.8 °C derived, coverage 100%), bill of materials, and provenance badge on every number.",
+          "Design 1 · Second Wind — 30 reclaimed sails → ~1,080 m² of membrane, ~280 kg, ~0.6–0.9 t CO₂e avoided. Scaffolding + sail fabric at Parc del Fòrum.",
+      },
+      {
+        src: "/assets/festcool/slide-design2.png",
+        caption:
+          "Design 2 · Fishing for Shade — 56 nylon fishing-net units → ~20 m² each, ~30 kg nylon, ~0.2 t CO₂e avoided. Timber towers + mesh canopy.",
       },
     ],
     status: "Active",
@@ -112,9 +117,22 @@ export const projects: Project[] = [
     images: [
       { src: "/assets/gigai/intro.png", caption: "GigAI — material change coordinator intro slide" },
       { src: "/assets/gigai/pipeline.png", caption: "Event-driven pipeline overview" },
-      { src: "/assets/gigai/architecture.png", caption: "System architecture — services and data stores" },
+      {
+        src: "/assets/gigai/system-layers.png",
+        caption:
+          "System layers — event normalisation, security & scope filter, context enrichment, historical retrieval, domain processing, decision intelligence, plus a feedback-and-learning layer.",
+      },
       { src: "/assets/gigai/dashboard.png", caption: "React+Vite dashboard — ranked proposals, real-time SSE" },
-      { src: "/assets/gigai/results.png", caption: "Confidence-scored proposals landing at ~85%" },
+      {
+        src: "/assets/gigai/process-rfi.png",
+        caption:
+          "Process RFI — paste an Autodesk Construction Cloud RFI ID, get a generated proposal: Windows Substitution, €16,000, 77% confidence, AI-review flagged.",
+      },
+      {
+        src: "/assets/gigai/rfi-approval.png",
+        caption:
+          "PM approval card — current vs proposed window spec (Rehau Synego, U ≤ 1.1 W/m²K, EN 12207 Class 4), cost impact with line items, and the full LLM justification. Accept / Reject stays human.",
+      },
     ],
     status: "Active",
     links: [
@@ -155,6 +173,21 @@ export const projects: Project[] = [
     demoCaption:
       "Live demo · Begues, Catalonia · OSM buildings + compliance overlay · click any footprint for plantas, altura, área huella, superficie construida.",
     images: [
+      {
+        src: "/assets/archai/slide-io.png",
+        caption:
+          "ARCHAI in one line — 3D model + location in, checked geometry out. Rhino, Revit, ArchiCAD as host environments.",
+      },
+      {
+        src: "/assets/archai/slide-geometry-graph.png",
+        caption:
+          "Step 2 — the Rhino model becomes a geometry graph: every building, parcel, and floor is a node with metric properties, serialised to JSON for the rule engine.",
+      },
+      {
+        src: "/assets/archai/slide-results-rhino.png",
+        caption:
+          "Step 6 — results inside Rhino: a panel explains each rule in plain text, designers see PASS/FAIL immediately, real-time compliance without leaving the modelling environment.",
+      },
       {
         src: "/assets/archai/demo-osm-begues.jpg",
         caption:
@@ -197,7 +230,7 @@ export const projects: Project[] = [
       "Vite",
     ],
     scene: undefined,
-    sizzleSrc: "",
+    sizzleSrc: "/videos/coolspend-30s.mp4",
     images: [
       {
         src: "/assets/coolspend/citywide-plan.png",
