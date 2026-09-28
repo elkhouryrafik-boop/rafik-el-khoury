@@ -2,197 +2,186 @@
 
 import { useState } from "react";
 import type { Project } from "@/lib/projects";
-import { StackChip } from "./StackChip";
+import { MetricChip } from "./MetricChip";
+import { PipelineDiagram } from "./PipelineDiagram";
 import { SceneFor } from "./scenes/SceneFor";
 import { SizzleVideo } from "./SizzleVideo";
-import { ImageStrip } from "./ImageStrip";
+
+const mono = {
+  fontFamily: "var(--font-mono)",
+  fontSize: "var(--fs-micro)",
+  letterSpacing: "0.14em",
+  textTransform: "uppercase" as const,
+};
+
+function ProofImage({
+  img,
+  index,
+  total,
+  large = false,
+  compact = false,
+}: {
+  img: { src: string; caption: string };
+  index: number;
+  total: number;
+  large?: boolean;
+  compact?: boolean;
+}) {
+  return (
+    <a href={img.src} target="_blank" rel="noreferrer" className="group block">
+      <div
+        className="relative w-full overflow-hidden border"
+        style={{ borderColor: "var(--rule)", aspectRatio: "16 / 10", background: "var(--paper)" }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={img.src}
+          alt={img.caption}
+          loading="lazy"
+          className={`absolute inset-0 h-full w-full ${large ? "object-contain" : "object-cover"} transition-opacity group-hover:opacity-85`}
+        />
+      </div>
+      <div className={compact ? "mt-1.5 hidden sm:block" : "mt-1.5"} style={{ ...mono, color: "var(--ink-3)", letterSpacing: "0.1em", lineHeight: 1.4 }}>
+        fig. {String(index + 1).padStart(2, "0")}/{String(total).padStart(2, "0")} · {img.caption}
+      </div>
+    </a>
+  );
+}
 
 export function ProjectCard({ project }: { project: Project }) {
   const [open, setOpen] = useState(false);
+  const hasExtra = Boolean(project.demoSrc || project.scene);
+  const hasLead = Boolean(project.sizzleSrc || project.diagram);
+  const imgs = project.images.slice(0, 3);
+  const leadImage = !hasLead && !project.gridOnly ? imgs[0] : undefined;
+  const gridImages = leadImage ? imgs.slice(1) : imgs;
+  const gridOffset = leadImage ? 1 : 0;
 
   return (
-    <article
-      className="border-t py-12"
-      style={{ borderColor: "var(--rule)" }}
-    >
-      {/* Sizzle — always visible, full card width, autoplay on scroll */}
-      <SizzleVideo
-        src={project.sizzleSrc}
-        label={`Remotion sizzle for ${project.shortName}.`}
-        autoPlay
-        showControls
-        numberLabel={project.number}
-        shortName={project.shortName}
-      />
-
-      {/* Header row — title + summary, click to expand */}
-      <button
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-        aria-controls={`${project.id}-panel`}
-        className="mt-6 grid w-full grid-cols-12 items-start gap-6 text-left transition-colors hover:bg-[color-mix(in_oklab,var(--ink)_3%,transparent)]"
-      >
-        {/* Numeral */}
-        <div className="col-span-2">
+    <article className="grid grid-cols-12 gap-6 border-t py-12 lg:gap-10" style={{ borderColor: "var(--rule)" }}>
+      {/* Text column */}
+      <div className="col-span-12 flex flex-col lg:col-span-5">
+        <div className="flex items-baseline justify-between gap-4" style={{ ...mono, color: "var(--ink-3)" }}>
           <span
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(3rem, 6vw, 5.5rem)",
+              fontSize: "clamp(2.5rem, 4.5vw, 4rem)",
               lineHeight: 1,
-              color: open ? "var(--accent)" : "var(--ink)",
               letterSpacing: "-0.04em",
-              transition: "color var(--dur-base) var(--ease-out)",
+              color: "var(--ink)",
+              textTransform: "none",
             }}
           >
             {project.number}
           </span>
+          <span className="text-right">
+            {project.date} · <span style={{ color: "var(--accent)" }}>{project.status}</span>
+          </span>
         </div>
 
-        {/* Title + summary */}
-        <div className="col-span-7">
-          <div
-            className="mb-2"
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "var(--fs-micro)",
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "var(--ink-3)",
-            }}
-          >
-            {project.tagline}
-          </div>
-          <h3
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "var(--fs-h2)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              color: "var(--ink)",
-            }}
-          >
-            {project.name}
-          </h3>
-          <p
-            className="mt-3 max-w-[60ch]"
-            style={{
-              fontFamily: "var(--font-body)",
-              color: "var(--ink-2)",
-            }}
-          >
-            {project.summary}
-          </p>
+        <div className="mt-5" style={{ ...mono, color: "var(--ink-3)", letterSpacing: "0.18em" }}>
+          {project.tagline}
         </div>
-
-        {/* Meta column */}
-        <div
-          className="col-span-3 flex flex-col items-end gap-3"
+        <h3
+          className="mt-2"
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--fs-micro)",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "var(--ink-2)",
+            fontFamily: "var(--font-display)",
+            fontSize: "var(--fs-h2)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+            color: "var(--ink)",
           }}
         >
-          <span>{project.date}</span>
-          <span style={{ color: "var(--ink-3)" }}>
-            {open ? "Hide details" : "Read more"}
-          </span>
-          <span aria-hidden style={{ fontSize: "1.5rem", lineHeight: 1 }}>
-            {open ? "—" : "+"}
-          </span>
+          {project.name}
+        </h3>
+        <p className="mt-3 max-w-[48ch]" style={{ fontFamily: "var(--font-body)", color: "var(--ink-2)" }}>
+          {project.problem}
+        </p>
+
+        <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+          {project.metrics.map((m) => (
+            <MetricChip key={m.label} metric={m} />
+          ))}
         </div>
-      </button>
 
-      {/* Expanded panel */}
-      {open && (
-        <div
-          id={`${project.id}-panel`}
-          className="mt-8 grid grid-cols-12 gap-6"
-        >
-          {/* Highlights — left 6 */}
-          <div className="col-span-12 md:col-span-6">
-            <div
-              className="mb-3"
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "var(--fs-micro)",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "var(--ink-3)",
-              }}
-            >
-              Highlights
-            </div>
-            <ul className="space-y-3">
-              {project.highlights.map((h, i) => (
-                <li
-                  key={i}
-                  className="flex gap-3 border-l-2 pl-3"
-                  style={{ borderColor: "var(--ink)", color: "var(--ink-2)" }}
-                >
-                  <span
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "var(--fs-micro)",
-                      color: "var(--ink-3)",
-                      paddingTop: 4,
-                    }}
-                  >
-                    0{i + 1}
-                  </span>
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
+        <p className="mt-5" style={{ ...mono, color: "var(--ink-2)", letterSpacing: "0.1em", lineHeight: 1.6 }}>
+          <span style={{ color: "var(--ink-3)" }}>Stack: </span>
+          {project.stack.join(" · ")}
+        </p>
 
-            <div className="mt-6">
-              <div
-                className="mb-2"
+        {(project.links.length > 0 || hasExtra) && (
+          <div className="mt-5 flex flex-wrap gap-2">
+            {project.links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 border px-3 py-2"
                 style={{
+                  borderColor: "var(--ink)",
                   fontFamily: "var(--font-mono)",
-                  fontSize: "var(--fs-micro)",
-                  letterSpacing: "0.18em",
+                  fontSize: "var(--fs-meta)",
+                  letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: "var(--ink-3)",
+                  color: "var(--ink)",
+                  borderRadius: 0,
                 }}
               >
-                Stack
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {project.stack.map((s) => (
-                  <StackChip key={s}>{s}</StackChip>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              {project.links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 border px-3 py-2"
-                  style={{
-                    borderColor: "var(--ink)",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "var(--fs-meta)",
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "var(--ink)",
-                    borderRadius: 0,
-                  }}
-                >
-                  {l.label} <span aria-hidden>↗</span>
-                </a>
-              ))}
-            </div>
+                {l.label} <span aria-hidden>↗</span>
+              </a>
+            ))}
+            {hasExtra && (
+              <button
+                onClick={() => setOpen((o) => !o)}
+                aria-expanded={open}
+                aria-controls={`${project.id}-extra`}
+                className="inline-flex items-center gap-2 border px-3 py-2"
+                style={{
+                  borderColor: "var(--ink)",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "var(--fs-meta)",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  background: open ? "var(--ink)" : "transparent",
+                  color: open ? "var(--paper)" : "var(--ink)",
+                  borderRadius: 0,
+                }}
+              >
+                {project.demoSrc ? "Live demo" : "3D view"} <span aria-hidden>{open ? "−" : "+"}</span>
+              </button>
+            )}
           </div>
+        )}
+      </div>
 
-          {/* R3F scene + image strip — right 6 */}
-          <div className="col-span-12 space-y-4 md:col-span-6">
+      {/* Proof column */}
+      <div className="col-span-12 flex flex-col gap-4 lg:col-span-7">
+        {project.sizzleSrc && (
+          <SizzleVideo
+            src={project.sizzleSrc}
+            label={`Video summary of ${project.shortName}.`}
+            autoPlay
+            showControls
+            numberLabel={project.number}
+            shortName={project.shortName}
+          />
+        )}
+        {!project.sizzleSrc && project.diagram && (
+          <PipelineDiagram id={project.diagram} number={project.number} />
+        )}
+        {leadImage && <ProofImage img={leadImage} index={0} total={imgs.length} large />}
+
+        {gridImages.length > 0 && (
+          <div className={`grid gap-3 ${gridImages.length === 1 ? "grid-cols-1" : gridImages.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
+            {gridImages.map((img, i) => (
+              <ProofImage key={img.src} img={img} index={i + gridOffset} total={imgs.length} large={gridImages.length === 1} compact={gridImages.length === 3} />
+            ))}
+          </div>
+        )}
+
+        {open && hasExtra && (
+          <div id={`${project.id}-extra`} className="flex flex-col gap-4">
             {project.demoSrc && (
               <>
                 <SizzleVideo
@@ -201,60 +190,21 @@ export function ProjectCard({ project }: { project: Project }) {
                   autoPlay
                   showControls
                   numberLabel={`${project.number}-demo`}
-                  shortName={`${project.shortName} · LIVE DEMO`}
+                  shortName={`${project.shortName} · live demo`}
                 />
                 {project.demoCaption && (
-                  <p
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "var(--fs-micro)",
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      color: "var(--ink-3)",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {project.demoCaption}
-                  </p>
+                  <p style={{ ...mono, color: "var(--ink-3)", lineHeight: 1.5 }}>{project.demoCaption}</p>
                 )}
               </>
             )}
-
             {project.scene && (
-              <>
-                <div
-                  className="aspect-[4/3] w-full border"
-                  style={{ borderColor: "var(--rule)" }}
-                >
-                  <SceneFor id={project.scene} />
-                </div>
-                <div
-                  className="flex items-baseline justify-between"
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "var(--fs-micro)",
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "var(--ink-3)",
-                  }}
-                >
-                  <span>
-                    fig. {project.number} — {project.shortName} · R3F scene
-                  </span>
-                  <span>WebGL · auto-orbit</span>
-                </div>
-              </>
-            )}
-
-            {project.images.length > 0 && (
-              <ImageStrip
-                images={project.images}
-                projectShortName={project.shortName}
-              />
+              <div className="aspect-[4/3] w-full border" style={{ borderColor: "var(--rule)" }}>
+                <SceneFor id={project.scene} />
+              </div>
             )}
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </article>
   );
 }

@@ -10,7 +10,7 @@ const items = [
       "Evaluated international masterplan proposals for a 19 km² island development; built a scoring framework weighting design merit, consultant expertise, and long-term vision alignment.",
       "SHA villa complex redesign in Al-Jurf — piling works and peer review, CAD refinement, sales brochure design.",
       "Programmed three community parks in Madinat Al-Riyadh through site analysis and public-space planning.",
-      "Co-authored UNICEF-guided school rehabilitation proposals in southern Lebanon.",
+      "Co-authored school-rehabilitation proposals for an international donor programme in southern Lebanon.",
       "Briefed the president of Aramoun municipality on the town's urban character and proposed interventions.",
     ],
   },

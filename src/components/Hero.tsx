@@ -2,13 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { HeroPlate } from "./HeroPlate";
-import { IntroReelVideo } from "./IntroReelVideo";
 
 export function Hero() {
   const labelRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const text = "AI ENGINEER · BUILT ENVIRONMENT · CIVIL ENG + SPATIAL PLANNING + SUSTAINABLE URBAN DESIGN · ";
+    const text = "URBAN PLANNER · SUSTAINABLE BUILT ENVIRONMENT · CIVIL ENG + SPATIAL PLANNING + URBAN DESIGN + AI · ";
     const el = labelRef.current;
     if (!el) return;
     el.textContent = text.repeat(6);
@@ -60,7 +59,7 @@ export function Hero() {
             }}
           >
             <span style={{ width: 24, height: 1, background: "var(--ink)" }} aria-hidden />
-            AI Engineer for the Built Environment
+            Urbanist · Problem solver
           </div>
 
           <h1
@@ -77,7 +76,21 @@ export function Hero() {
           </h1>
 
           <p
-            className="mt-6 max-w-[58ch]"
+            className="mt-5 max-w-[24ch]"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.5rem, 2.6vw, 2.25rem)",
+              lineHeight: 1.12,
+              letterSpacing: "-0.02em",
+              color: "var(--ink)",
+            }}
+          >
+            Urban planner for a sustainable built environment. GIS, code and AI
+            get me there faster.
+          </p>
+
+          <p
+            className="mt-5 max-w-[58ch]"
             style={{
               fontFamily: "var(--font-body)",
               fontSize: "clamp(1.0625rem, 1.4vw, 1.25rem)",
@@ -85,12 +98,9 @@ export function Hero() {
               color: "var(--ink-2)",
             }}
           >
-            Civil engineer, urban planner, AI researcher at <em>IAAC</em>.
-            Building tools for climate-aware festival shade placement,
-            automated compliance checking, and project-manager communication
-            pipelines.
-            Authorised to work in the <strong>UK</strong>, <strong>EU</strong>,
-            and <strong>UAE</strong>.
+            Civil engineer and urban planner, now building AI tools for
+            architects at <em>RELK</em>. Authorised to work in the{" "}
+            <strong>UK</strong>, <strong>EU</strong> and <strong>UAE</strong>.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -147,25 +157,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right column: hero plate stacked over intro reel — visible above the fold on lg+ */}
+        {/* Right column: hero plate */}
         <div className="col-span-12 flex flex-col gap-4 lg:col-span-6">
           <HeroPlate />
-          <div>
-            <IntroReelVideo />
-            <div
-              className="mt-2 flex items-baseline justify-between"
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "var(--fs-micro)",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "var(--ink-3)",
-              }}
-            >
-              <span>fig. ∞ — intro reel · remotion</span>
-              <span>5 s · muted loop · autoplay</span>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -184,7 +178,7 @@ export function Hero() {
             color: "var(--ink-3)",
           }}
         >
-          AI ENGINEER · BUILT ENVIRONMENT · CIVIL ENG + SPATIAL PLANNING + SUSTAINABLE URBAN DESIGN ·
+          URBAN PLANNER · SUSTAINABLE BUILT ENVIRONMENT · CIVIL ENG + SPATIAL PLANNING + URBAN DESIGN + AI ·
         </span>
       </div>
     </section>

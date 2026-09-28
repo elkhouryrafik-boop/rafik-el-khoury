@@ -22,14 +22,14 @@ const archivoBlack = Archivo_Black({
 });
 
 export const metadata: Metadata = {
-  title: "Rafik El Khoury — AI Engineer for the Built Environment",
+  title: "Rafik El Khoury · Urban planner for a sustainable built environment",
   description:
-    "Civil engineer, urban planner, and AI researcher at IAAC. Building tools for climate-aware festival shade placement, automated compliance checking, and project-manager communication pipelines.",
+    "Civil engineer and urban planner, now building AI tools for architects at RELK. Site studies, GIS, and software with the numbers to back it.",
   metadataBase: new URL("https://rafik-el-khoury.elkhouryrafik.workers.dev"),
   openGraph: {
-    title: "Rafik El Khoury — AI Engineer for the Built Environment",
+    title: "Rafik El Khoury · Urban planner for a sustainable built environment",
     description:
-      "Civil engineer, urban planner, and AI researcher at IAAC.",
+      "Civil engineer and urban planner, now building AI tools for architects at RELK.",
     type: "website",
   },
 };

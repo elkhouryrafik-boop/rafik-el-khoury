@@ -1,246 +1,267 @@
+export type Metric = { value: string; label: string };
+
 export type Project = {
   id: string;
   number: string;
+  group: "relk" | "iaac";
   name: string;
   shortName: string;
   date: string;
   tagline: string;
-  summary: string;
-  highlights: string[];
+  /** One-line problem statement. */
+  problem: string;
+  /** Exactly three verified metrics. */
+  metrics: [Metric, Metric, Metric];
   stack: string[];
-  scene: "gigai" | "archai" | undefined;
-  sizzleSrc: string;
+  status: string;
+  scene?: "gigai" | "archai";
+  sizzleSrc?: string;
+  /** Inline SVG diagram used when no safe screenshot exists. */
+  diagram?: "revit" | "cgate" | "timesheet";
   demoSrc?: string;
   demoCaption?: string;
+  /** Show images as an even grid instead of one lead image + grid. */
+  gridOnly?: boolean;
+  /** Up to three proof images. */
   images: { src: string; caption: string }[];
-  status: "Active" | "Shipped" | "Active research";
   links: { label: string; href: string }[];
 };
 
+const GITHUB = "https://github.com/elkhouryrafik-boop";
+
 export const projects: Project[] = [
+  // ─── At RELK, 2026 ──────────────────────────────────────────────
+  {
+    id: "coliath",
+    number: "01",
+    group: "relk",
+    name: "Coliath Castle: site strategy",
+    shortName: "Coliath",
+    date: "2026",
+    tagline: "Heritage planning · Akkar, Lebanon",
+    problem:
+      "A 12th-century castle sits in the middle of a growing village. Before anyone designs, what can the site actually hold?",
+    metrics: [
+      { value: "162", label: "buildings mapped within 200 m" },
+      { value: "87,672", label: "hourly climate records analysed" },
+      { value: "~52,000", label: "words of source-tagged research" },
+    ],
+    stack: ["QGIS", "OpenStreetMap", "SRTM DEM", "ERA5", "Python", "Blender", "Multi-agent research"],
+    status: "Live commission",
+    images: [
+      { src: "/assets/coliath/site-ring-buildings.webp", caption: "Buildings in 50/100/200 m rings" },
+      { src: "/assets/coliath/terrain-knoll.webp", caption: "Terrain section through the knoll" },
+      { src: "/assets/coliath/view-from-tower.webp", caption: "Site visit: view from the tower" },
+    ],
+    links: [],
+  },
+  {
+    id: "revit-mcp",
+    number: "02",
+    group: "relk",
+    name: "Revit MCP, hardened",
+    shortName: "Revit MCP",
+    date: "2026",
+    tagline: "AI agents inside Revit, safely · used by the office's architects",
+    problem:
+      "Architects wanted AI agents to work in live Revit models. The open-source bridge had no authentication.",
+    metrics: [
+      { value: "1,240", label: "passing tests, up from 64" },
+      { value: "5 / 5", label: "security findings fixed same day" },
+      { value: "9", label: "new tools added" },
+    ],
+    stack: ["Python", "pyRevit Routes", "MCP", "Revit API", "pytest + CI"],
+    status: "In use",
+    diagram: "revit",
+    images: [],
+    links: [{ label: "GitHub", href: GITHUB }],
+  },
+  {
+    id: "render-app",
+    number: "03",
+    group: "relk",
+    name: "Render App",
+    shortName: "Render App",
+    date: "2026",
+    tagline: "AI rendering studio for the office's architects",
+    problem:
+      "Architects need client-ready renders from sketches, massing and plans, without losing the building they drew.",
+    metrics: [
+      { value: "18", label: "render tasks, sketch to masterplan" },
+      { value: "302", label: "tests passing" },
+      { value: "27 MB", label: "real SketchUp site model tested" },
+    ],
+    stack: ["Python", "fal.ai FLUX", "ControlNet (depth)", "React", "Docker"],
+    status: "In use",
+    gridOnly: true,
+    images: [
+      { src: "/assets/render-app/massing-render.webp", caption: "Massing model to render" },
+      { src: "/assets/render-app/aerial-render.webp", caption: "Aerial view task" },
+      { src: "/assets/render-app/interior-render.webp", caption: "Interior task" },
+    ],
+    links: [],
+  },
+  {
+    id: "cgate",
+    number: "04",
+    group: "relk",
+    name: "C-Gate",
+    shortName: "C-Gate",
+    date: "2026",
+    tagline: "Tender compliance checking",
+    problem:
+      "Integrity clauses in procurement tenders are easy to miss and costly to get wrong.",
+    metrics: [
+      { value: "381", label: "automated tests" },
+      { value: "15", label: "checklist items, quotes grounded verbatim" },
+      { value: "0", label: "LLM calls in the review path" },
+    ],
+    stack: ["Python", "PyMuPDF", "python-docx", "SQLite ledger", "FastAPI", "Local LLM (drafting only)"],
+    status: "Built · internal",
+    diagram: "cgate",
+    images: [],
+    links: [],
+  },
+  {
+    id: "timesheets",
+    number: "05",
+    group: "relk",
+    name: "Timesheet bot",
+    shortName: "Timesheets",
+    date: "2026",
+    tagline: "Hours by chat, into Excel",
+    problem:
+      "Hundreds of staff log hours in separate Excel workbooks, and someone chases them every month.",
+    metrics: [
+      { value: "703", label: "tests passing" },
+      { value: "329", label: "workbooks generated in ~79 s" },
+      { value: "418", label: "project codes matched" },
+    ],
+    stack: ["TypeScript", "Microsoft Teams SDK", "Telegram", "Claude", "xlsx-populate", "SQLite"],
+    status: "Piloting in the ERP",
+    diagram: "timesheet",
+    images: [],
+    links: [],
+  },
+
+  // ─── At IAAC, 2025–2026 ─────────────────────────────────────────
+  {
+    id: "coolspend",
+    number: "06",
+    group: "iaac",
+    name: "CoolSpend",
+    shortName: "CoolSpend",
+    date: "2026",
+    tagline: "3rd place, Infrared.city Buildathon 2026 · solo",
+    problem:
+      "Barcelona has a fixed tree budget. Which streets should get trees first to cut heat where people live?",
+    metrics: [
+      { value: "90 trees", label: "placed on a €1M citywide plan" },
+      { value: "20,609 m²", label: "cooled, measured on live UTCI" },
+      { value: "26,745", label: "residents served" },
+    ],
+    stack: ["Python", "FastAPI", "shapely", "Infrared.city SDK", "React", "deck.gl"],
+    status: "Shipped",
+    sizzleSrc: "/videos/coolspend-30s.mp4",
+    images: [
+      { src: "/assets/coolspend/citywide-plan.png", caption: "Citywide plan: six hottest sites funded first" },
+    ],
+    links: [{ label: "GitHub", href: `${GITHUB}/InFraRed-Hackathon-2026` }],
+  },
   {
     id: "festcool",
-    number: "01",
+    number: "07",
+    group: "iaac",
     name: "FestCOOL / U-Shade",
     shortName: "U-Shade",
     date: "2026",
-    tagline: "Climate-aware festival shade placement",
-    summary:
-      "Decision-support system that places shade on the cells of a festival site that are simultaneously the hottest and the busiest. Crosses a real UTCI heat grid (infrared.city) with a pedestrian-dynamics crowd field (JuPedSim), solves shade placement as a Maximal Covering Location Problem, and clads each structure in the lowest-transport-carbon reclaimed material the surrounding city already contains. Demoed live on Primavera Sound 2026 at Parc del Fòrum, Barcelona.",
-    highlights: [
-      "Demand field = crowd density × thermal excess above a 26 °C UTCI comfort threshold, on a 6 m master lattice. Crowd migrates over a continuous daytime timeline driven by the real festival schedule and Spotify monthly-listener stage popularity.",
-      "Placement solved twice — deterministic greedy heuristic as a permanent lower-bound witness, plus an exact integer program that emits a verifiable optimality certificate. Coverage measured against projected shadows, not footprints.",
-      "Honesty as an engineered property: every reported number carries a provenance tier (grounded / derived / assumed / declared), and the cooling-acceptance gate is hash-locked — editing a threshold to make a run pass fails loudly at run time.",
-      "LLM is a translator, never a designer — parses the free-text brief into typed fields via schema-constrained structured output, retry loop terminated on stop_reason. Every spatial decision is deterministic and auditable.",
-      "Reclaimed materials from Barcelona waste streams selected by transport carbon (recycled cut-off basis); cooling effectiveness scaled by 1 − membrane solar transmissivity. Team of 4 at IAAC MaAI01: Juan, Dominika, Seid, Rafik.",
+    tagline: "Shade placement for festivals",
+    problem:
+      "Festival crowds stand on bare concrete in peak heat. Where should a limited amount of shade go?",
+    metrics: [
+      { value: "6 m", label: "grid of heat × crowd density" },
+      { value: "~1,080 m²", label: "shade from 30 reclaimed sails" },
+      { value: "4", label: "person team; I led the code" },
     ],
-    stack: [
-      "Python",
-      "FastAPI",
-      "infrared.city UTCI",
-      "JuPedSim",
-      "MCLP / ILP",
-      "Mapbox GL",
-      "React + TanStack Start",
-      "TypeScript",
-      "Claude (structured output)",
-      "Rhino.Compute",
-      "Grasshopper",
-    ],
-    scene: undefined,
+    stack: ["Python", "infrared.city UTCI", "JuPedSim", "Integer programming", "Mapbox GL", "Claude"],
+    status: "Active",
     sizzleSrc: "/videos/ushade-marketing-30s.mp4",
     images: [
-      {
-        src: "/assets/festcool/slide-title.png",
-        caption:
-          "uShade — AI-assisted shading strategies for festivals. IAAC MaAI01, Prof. Emanuele Naboni. Juan Gaitán, Dominika Klopotek, Rafik El Khoury, Seid Burka.",
-      },
-      {
-        src: "/assets/festcool/slide-why-it-matters.png",
-        caption:
-          "Why it matters — ≈1 in 60 attendees needs emergency care, 375,000+ on unshaded concrete across Barcelona's festival circuit, 60,000+ EU heat deaths per year.",
-      },
-      {
-        src: "/assets/festcool/slide-architecture.png",
-        caption:
-          "System architecture — user brief + JuPedSim + infrared.city feed ILP-MCLP (maximise covered demand), the LLM joints data to JSON, RAG searches available materials.",
-      },
-      {
-        src: "/assets/festcool/slide-jupedsim.png",
-        caption:
-          "JuPedSim crowd model — Collision-Free Speed Model, physics not training: georeferenced site → crowd grid snapped to the 6 m lattice → greedy scoring (crowd × (UTCI − 26)) → shade placement feeds ILP-MCLP.",
-      },
-      {
-        src: "/assets/festcool/slide-design1.png",
-        caption:
-          "Design 1 · Second Wind — 30 reclaimed sails → ~1,080 m² of membrane, ~280 kg, ~0.6–0.9 t CO₂e avoided. Scaffolding + sail fabric at Parc del Fòrum.",
-      },
-      {
-        src: "/assets/festcool/slide-design2.png",
-        caption:
-          "Design 2 · Fishing for Shade — 56 nylon fishing-net units → ~20 m² each, ~30 kg nylon, ~0.2 t CO₂e avoided. Timber towers + mesh canopy.",
-      },
+      { src: "/assets/festcool/slide-why-it-matters.png", caption: "The heat risk at Barcelona festivals" },
+      { src: "/assets/festcool/slide-jupedsim.png", caption: "Crowd model feeding shade placement" },
+      { src: "/assets/festcool/slide-design1.png", caption: "Design 1: 30 reclaimed sails" },
     ],
-    status: "Active",
+    links: [{ label: "GitHub", href: GITHUB }],
+  },
+  {
+    id: "archai",
+    number: "08",
+    group: "iaac",
+    name: "ARCHAI",
+    shortName: "ARCHAI",
+    date: "2025–2026",
+    tagline: "Zoning checks inside Rhino",
+    problem:
+      "Checking a massing model against zoning rules is slow, manual, and hard to audit.",
+    metrics: [
+      { value: "41", label: "checks on a 10,880 m² test site" },
+      { value: "19 / 22", label: "pass / fail, each citing its rule" },
+      { value: "0", label: "missing or unsupported metrics" },
+    ],
+    stack: ["C# / RhinoCommon", "Python", "ChromaDB", "GPT-4o-mini", "OpenStreetMap"],
+    status: "Shipped",
+    scene: "archai",
+    sizzleSrc: "/videos/sizzle-archai.mp4",
+    demoSrc: "/videos/archai-demo.mp4",
+    demoCaption: "Live demo · Begues, Catalonia · click a footprint for floors, height and area.",
+    images: [
+      { src: "/assets/archai/slide-results-rhino.png", caption: "PASS/FAIL panel inside Rhino" },
+      { src: "/assets/archai/demo-osm-begues.jpg", caption: "OSM prototype, Begues" },
+      { src: "/assets/archai/slide-geometry-graph.png", caption: "Model as a geometry graph" },
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/elkhouryrafik-boop" },
+      { label: "Sample report (PDF)", href: "/reports/archai-compliance-report.pdf" },
+      { label: "GitHub", href: GITHUB },
     ],
   },
   {
     id: "gigai",
-    number: "02",
-    name: "GigAI — Material Change Coordinator",
+    number: "09",
+    group: "iaac",
+    name: "GigAI",
     shortName: "GigAI",
     date: "2026",
-    tagline: "PM workflow automation for AEC",
-    summary:
-      "Event-driven workflow automation that captures construction material changes from meetings and PM tools, then generates coordinated, PM-approvable actions with confidence scoring.",
-    highlights: [
-      "Pipeline — meeting audio capture → event normalisation (Claude Haiku) → context enrichment (pgvector RAG over floor plans, suppliers, history) → proposal generation (Claude Sonnet) → ranked actions for PM approval.",
-      "Integrated Autodesk Construction Cloud, Google Calendar, Gmail. React+Vite dashboard with SSE for real-time decisions.",
-      "4-factor confidence scoring lands demo proposals at ~85%.",
+    tagline: "Construction change coordination",
+    problem:
+      "Material changes agreed in meetings get lost before they reach the project manager.",
+    metrics: [
+      { value: "~85%", label: "confidence on demo proposals" },
+      { value: "3", label: "integrations: ACC, Calendar, Gmail" },
+      { value: "4-factor", label: "confidence score; a PM approves" },
     ],
-    stack: [
-      "Python",
-      "FastAPI",
-      "React+Vite",
-      "PostgreSQL",
-      "pgvector",
-      "Docker",
-      "GCP Pub/Sub",
-      "Claude Haiku",
-      "Claude Sonnet",
-      "Voyage AI",
-    ],
+    stack: ["Python", "FastAPI", "React", "PostgreSQL + pgvector", "Claude"],
+    status: "Active",
     scene: "gigai",
     sizzleSrc: "/videos/sizzle-gigai.mp4",
     images: [
-      { src: "/assets/gigai/intro.png", caption: "GigAI — material change coordinator intro slide" },
-      { src: "/assets/gigai/pipeline.png", caption: "Event-driven pipeline overview" },
-      {
-        src: "/assets/gigai/system-layers.png",
-        caption:
-          "System layers — event normalisation, security & scope filter, context enrichment, historical retrieval, domain processing, decision intelligence, plus a feedback-and-learning layer.",
-      },
-      { src: "/assets/gigai/dashboard.png", caption: "React+Vite dashboard — ranked proposals, real-time SSE" },
-      {
-        src: "/assets/gigai/process-rfi.png",
-        caption:
-          "Process RFI — paste an Autodesk Construction Cloud RFI ID, get a generated proposal: Windows Substitution, €16,000, 77% confidence, AI-review flagged.",
-      },
-      {
-        src: "/assets/gigai/rfi-approval.png",
-        caption:
-          "PM approval card — current vs proposed window spec (Rehau Synego, U ≤ 1.1 W/m²K, EN 12207 Class 4), cost impact with line items, and the full LLM justification. Accept / Reject stays human.",
-      },
+      { src: "/assets/gigai/process-rfi.png", caption: "An RFI turned into a costed proposal" },
+      { src: "/assets/gigai/rfi-approval.png", caption: "PM approval card" },
     ],
-    status: "Active",
-    links: [
-      { label: "GitHub", href: "https://github.com/elkhouryrafik-boop" },
-    ],
+    links: [{ label: "GitHub", href: GITHUB }],
+  },
+];
+
+/** Compact credit lines: work in progress without public proof yet. */
+export const inProgress: { name: string; line: string; status: string; image?: { src: string; caption: string } }[] = [
+  {
+    name: "AI layer for the office ERP",
+    line: "A local, permission-scoped agent layer on ERPNext. The timesheet bot and Revit MCP already plug into it. No cloud LLM.",
+    status: "Piloting",
   },
   {
-    id: "archai",
-    number: "03",
-    name: "ARCHAI — Automated Compliance Checking",
-    shortName: "ARCHAI",
-    date: "2025—2026",
-    tagline: "Rhino plugin → vector-store RAG → cited PASS/FAIL",
-    summary:
-      "Native Rhino plugin (.rhp) that reads layered CAD geometry, extracts site + per-building metrics (height, footprint, total floor area, setback, FAR, coverage), ships them as JSON to a Python backend, and RAG-checks every applicable urban-regulation chunk against the model. Output: a per-building report with PASS / FAIL / MISSING_METRIC / CANNOT_CHECK rows, each row carrying the exact regulation chunk it cites.",
-    highlights: [
-      "C# RhinoCommon plugin (.rhp): scans an active document, parses layer convention (SITE::BOUNDARY, BLDG_X::FOOTPRINT, BLDG_X::FLOORS, BLDG_X::MASS), computes site area + per-building height, footprint, floor area, min setback, FAR, coverage in real metric units regardless of model unit system.",
-      "Sample run on a 10,880 m² site with 2 buildings: 41 compliance checks → 19 PASS / 22 FAIL / 0 missing / 0 unsupported. Each row links to a specific regulation chunk (C1–C8) so the verdict is auditable, not opaque.",
-      "Co-authored the three-citation rule for the team's regenerative-design platform — same provenance discipline applied here: every PASS or FAIL row carries the rule it cites. LLM is editor / search only, never the source of truth.",
-      "Dual demo: (a) a live OSM-based prototype on Begues, Catalonia that surfaces per-building plantas, altura, área huella, and superficie construida from clickable footprints; (b) a Rhino-plugin pipeline that emits the same compliance_graph.json the prototype consumes.",
-      "Compliance Engine + Python Runner + Compliance Panel host all live inside the Rhino UI so the architect never leaves the modelling environment.",
-    ],
-    stack: [
-      "C# / .NET",
-      "RhinoCommon SDK",
-      "Newtonsoft.Json",
-      "Python backend",
-      "ChromaDB",
-      "GPT-4o-mini",
-      "Pandas",
-      "n8n",
-      "OpenStreetMap",
-      "Folium",
-    ],
-    scene: "archai",
-    sizzleSrc: "/videos/sizzle-archai.mp4",
-    demoSrc: "/videos/archai-demo.mp4",
-    demoCaption:
-      "Live demo · Begues, Catalonia · OSM buildings + compliance overlay · click any footprint for plantas, altura, área huella, superficie construida.",
-    images: [
-      {
-        src: "/assets/archai/slide-io.png",
-        caption:
-          "ARCHAI in one line — 3D model + location in, checked geometry out. Rhino, Revit, ArchiCAD as host environments.",
-      },
-      {
-        src: "/assets/archai/slide-geometry-graph.png",
-        caption:
-          "Step 2 — the Rhino model becomes a geometry graph: every building, parcel, and floor is a node with metric properties, serialised to JSON for the rule engine.",
-      },
-      {
-        src: "/assets/archai/slide-results-rhino.png",
-        caption:
-          "Step 6 — results inside Rhino: a panel explains each rule in plain text, designers see PASS/FAIL immediately, real-time compliance without leaving the modelling environment.",
-      },
-      {
-        src: "/assets/archai/demo-osm-begues.jpg",
-        caption:
-          "Live OSM prototype on Begues, Catalonia — clickable building footprints surface plantas, altura aproximada, área huella, and superficie construida per edificio.",
-      },
-    ],
-    status: "Shipped",
-    links: [
-      {
-        label: "Sample report (PDF)",
-        href: "/reports/archai-compliance-report.pdf",
-      },
-      { label: "GitHub", href: "https://github.com/elkhouryrafik-boop" },
-    ],
-  },
-  {
-    id: "coolspend",
-    number: "04",
-    name: "CoolSpend",
-    shortName: "CoolSpend",
-    date: "2026",
-    tagline: "3rd Place, Infrared.city Buildathon 2026",
-    summary: "Budget-constrained street-tree placement optimiser for Barcelona — solo build, 3rd place at the Infrared.city Buildathon 2026. Fuses four real datasets (satellite heat + imperviousness, OSM geometry, Barcelona's tree inventory, the population register) into a 494-cell vulnerability grid, treats planting as budgeted weighted maximum coverage over validated slots, and reports cooling measured on live Infrared.city UTCI — never a proxy.",
-    highlights: [
-      "Candidate slots generated on a 4 m lattice with building / street / furniture / 8 m-spacing exclusions from OSM; placed by a cost-benefit greedy carrying the classical (1 − 1/e) ≈ 63% optimality guarantee, with an ecology gate that drops invasive and over-represented species (8-species plantable palette, anti-monoculture cap).",
-      "Measured before/after design: a baseline UTCI run (no trees) builds the demand field — a cell counts only where UTCI > 26 °C ∧ impervious ∧ not already shaded, weighted by UTCI − 26 — then a second live run with the trees reports ΔUTCI as the difference of two measured grids.",
-      "Plaça dels Àngels: 28 trees cooled a measured 4,268 m² at €30/m². Citywide €1M portfolio: 90 trees across 6 separated sites, 20,609 m² cooled, 26,745 residents served, zero invasive species.",
-      "Three-tier Infrared backend (mock / cached / live) chosen server-side so a synthetic preview can't be mistaken for a measured result; a SimBudget guard caps live calls at 3 per run; the greedy terminates on a real stop_reason, not an iteration cap.",
-    ],
-    stack: [
-      "Python",
-      "FastAPI",
-      "numpy",
-      "shapely",
-      "pyproj",
-      "Infrared.city SDK",
-      "React 18 + TypeScript",
-      "deck.gl",
-      "mapbox-gl",
-      "Vite",
-    ],
-    scene: undefined,
-    sizzleSrc: "/videos/coolspend-30s.mp4",
-    images: [
-      {
-        src: "/assets/coolspend/citywide-plan.png",
-        caption:
-          "Citywide €1M plan — 494 blocks scanned, 6 hottest funded first: 90 trees, 20,609 m² measured cooling, 26,745 residents served. 90/90 trees verified on valid ground by an independent OSM re-check.",
-      },
-    ],
-    status: "Shipped",
-    links: [
-      { label: "GitHub", href: "https://github.com/elkhouryrafik-boop/InFraRed-Hackathon-2026" },
-    ],
+    name: "rafikelkhoury.com rebuild",
+    line: "New Astro site for the firm, with a 528-project archive and a new design system.",
+    status: "Preview, not launched",
+    image: { src: "/assets/relk/company-site-preview.webp", caption: "Homepage preview" },
   },
 ];
