@@ -4,7 +4,7 @@ import { Work } from "@/components/Work";
 import { About } from "@/components/About";
 import { EarlierWork } from "@/components/EarlierWork";
 import { Contact } from "@/components/Contact";
-import { Colophon } from "@/components/Colophon";
+import { Footer } from "@/components/Footer";
 import { Cursor } from "@/components/Cursor";
 
 export default function Home() {
@@ -18,8 +18,8 @@ export default function Home() {
         <About />
         <EarlierWork />
         <Contact />
-        <Colophon />
       </main>
+      <Footer />
     </>
   );
 }

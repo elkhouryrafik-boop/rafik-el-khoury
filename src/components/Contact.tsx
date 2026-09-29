@@ -64,10 +64,10 @@ export function Contact() {
           <strong>open to collaboration</strong> where it fits well.
         </p>
         <p>
-          I&apos;m looking for <strong>urban planning or urban design
-          roles</strong> where data and AI are part of the work. I learn
-          quickly and I enjoy building tools. I&apos;m happy to talk about
-          full-time roles, collaborations or short projects.
+          I&apos;m looking for a <strong>full-time job in urban planning or
+          urban design</strong>, where data and AI are part of the work. If
+          you are hiring, or want to work together on a project, get in
+          touch.
         </p>
       </div>
 

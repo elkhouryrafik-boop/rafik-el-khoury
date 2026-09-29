@@ -22,7 +22,7 @@ export function Nav() {
   }, []);
 
   useEffect(() => {
-    const ids = ["top", ...sections.map((s) => s.id), "colophon"];
+    const ids = ["top", ...sections.map((s) => s.id)];
     const els = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
