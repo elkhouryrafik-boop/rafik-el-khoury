@@ -63,11 +63,9 @@ export function Colophon() {
         className="mb-12 max-w-[68ch]"
         style={{ color: "var(--ink-2)", fontSize: "1.125rem", lineHeight: 1.6 }}
       >
-        Every part of this site — copy drafts, the 3D scenes, the brutalist
-        register — was produced by a stack of AI tools
-        directed and reviewed by Rafik. The point of showing the stack is to
-        make a claim explicit: <strong>orchestration</strong> is the
-        differentiator, not any single model.
+        I built this site with the AI tools listed below. I directed the work
+        and reviewed the results, including the text, the 3D scenes and the
+        visual design.
       </p>
 
       <div
