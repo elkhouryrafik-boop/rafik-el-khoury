@@ -78,7 +78,7 @@ export function EarlierWork() {
           letterSpacing: "-0.03em",
         }}
       >
-        Before AI, the field: masterplans, sites, regulations, soil.
+        Previous experience and education
       </h2>
 
       <div className="grid grid-cols-1 gap-px md:grid-cols-2 lg:grid-cols-3"

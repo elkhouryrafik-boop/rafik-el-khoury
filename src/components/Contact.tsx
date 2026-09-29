@@ -51,7 +51,7 @@ export function Contact() {
           letterSpacing: "-0.03em",
         }}
       >
-        Pick a door.
+        Get in touch
       </h2>
 
       <div
@@ -59,9 +59,8 @@ export function Contact() {
         style={{ fontSize: "1.125rem", lineHeight: 1.65, color: "var(--ink-2)" }}
       >
         <p>
-          The projects end; the building doesn&apos;t. I&apos;m already
-          designing software for the family practice —{" "}
-          <em>Rafik El-Khoury &amp; Partners</em> — and I&apos;m{" "}
+          I currently build software for the family practice,{" "}
+          <em>Rafik El-Khoury &amp; Partners</em>, and I&apos;m{" "}
           <strong>open to collaboration</strong> where it fits well.
         </p>
         <p>

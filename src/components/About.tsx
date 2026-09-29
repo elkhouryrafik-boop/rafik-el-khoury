@@ -18,7 +18,7 @@ export function About() {
             letterSpacing: "-0.03em",
           }}
         >
-          Four disciplines, one job.
+          About me
         </h2>
 
         <div

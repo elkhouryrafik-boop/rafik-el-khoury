@@ -57,7 +57,7 @@ export function Colophon() {
           letterSpacing: "-0.03em",
         }}
       >
-        This site was built by orchestrated AI agents.
+        How this site was built
       </h2>
       <p
         className="mb-12 max-w-[68ch]"

@@ -37,7 +37,7 @@ export function Work() {
           letterSpacing: "-0.03em",
         }}
       >
-        Real problems, with the numbers to show for it.
+        Selected projects
       </h2>
 
       <GroupHeader title="At RELK · Rafik El-Khoury & Partners" meta="Aug 2026 – now" />
