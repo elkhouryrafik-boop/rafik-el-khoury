@@ -26,7 +26,7 @@ export function About() {
           style={{ fontSize: "1.125rem", lineHeight: 1.65, color: "var(--ink-2)" }}
         >
           <p>
-            I&apos;m an urbanist, and mostly a problem solver. I studied civil
+            I&apos;m an urbanist and an AI strategist. I studied civil
             engineering at <strong>Loughborough</strong> and spatial planning
             with urban design at <strong>Dundee</strong>. In July 2026 I
             finished a joint <strong>IAAC</strong> and <strong>EADA</strong>{" "}

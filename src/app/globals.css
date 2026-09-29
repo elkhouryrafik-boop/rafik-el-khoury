@@ -105,6 +105,25 @@ body {
   top: 1rem;
 }
 
+/* Hero work wall — tiles settle in once on load, then hold still */
+@keyframes wall-tile-in {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+.wall-tile {
+  animation: wall-tile-in var(--dur-slow) var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 45ms);
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+.work-wall:has(.wall-tile:hover) .wall-tile:not(:hover) {
+  opacity: 0.45;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wall-tile { animation: none; }
+}
+
 /* Custom cursor — desktop only */
 @media (pointer: fine) {
   body { cursor: none; }

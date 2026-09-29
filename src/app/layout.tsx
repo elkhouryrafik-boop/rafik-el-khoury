@@ -22,12 +22,12 @@ const archivoBlack = Archivo_Black({
 });
 
 export const metadata: Metadata = {
-  title: "Rafik El Khoury · Urban planner for a sustainable built environment",
+  title: "Rafik El Khoury · Urbanist and AI strategist",
   description:
     "Civil engineer and urban planner, now building AI tools for architects at RELK. Site studies, GIS, and software with the numbers to back it.",
   metadataBase: new URL("https://rafik-el-khoury.elkhouryrafik.workers.dev"),
   openGraph: {
-    title: "Rafik El Khoury · Urban planner for a sustainable built environment",
+    title: "Rafik El Khoury · Urbanist and AI strategist",
     description:
       "Civil engineer and urban planner, now building AI tools for architects at RELK.",
     type: "website",

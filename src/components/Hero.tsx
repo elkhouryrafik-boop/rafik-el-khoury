@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { HeroPlate } from "./HeroPlate";
+import { WorkWall } from "./WorkWall";
 
 export function Hero() {
   const labelRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const text = "URBAN PLANNER · SUSTAINABLE BUILT ENVIRONMENT · CIVIL ENG + SPATIAL PLANNING + URBAN DESIGN + AI · ";
+    const text = "URBANIST · AI STRATEGIST · SUSTAINABLE BUILT ENVIRONMENT · CIVIL ENG + SPATIAL PLANNING + URBAN DESIGN + AI · ";
     const el = labelRef.current;
     if (!el) return;
     el.textContent = text.repeat(6);
@@ -16,38 +16,38 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative mx-auto flex min-h-[100dvh] max-w-[1440px] flex-col px-6 pb-8 pt-6 md:px-10 md:pt-8 lg:px-14"
+      className="relative isolate flex min-h-[calc(100dvh-4.3rem)] flex-col overflow-hidden"
+      style={{ background: "var(--ink)" }}
     >
-      {/* Ambient thermal-isoline loop — sits behind everything in the hero */}
-      <video
-        src="/videos/hero-ambient.mp4"
-        className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-[0.16] motion-reduce:hidden"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden
-      />
+      {/* Full-bleed wall of project snippets — sits behind everything in the hero */}
+      <WorkWall />
 
       {/* Top ruled meta strip */}
       <div
-        className="flex items-baseline justify-between border-t pt-3"
-        style={{
-          borderColor: "var(--rule)",
-          fontFamily: "var(--font-mono)",
-          fontSize: "var(--fs-micro)",
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          color: "var(--ink-3)",
-        }}
+        className="border-b border-t"
+        style={{ background: "var(--paper)", borderColor: "var(--ink)" }}
       >
-        <span>— Personal site / 2026</span>
-        <span>Barcelona · Beirut · Athens · Abu Dhabi · Open to relocation</span>
+        <div
+          className="mx-auto flex max-w-[1440px] items-baseline justify-between gap-4 px-6 py-3 md:px-10 lg:px-14"
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "var(--fs-micro)",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "var(--ink-3)",
+          }}
+        >
+          <span>— Personal site / 2026</span>
+          <span>Barcelona · Beirut · Athens · Abu Dhabi · Open to relocation</span>
+        </div>
       </div>
 
-      {/* Hero content — 12-col grid, left text, right media block */}
-      <div className="grid flex-1 grid-cols-12 items-center gap-6 py-8 md:gap-10 md:py-10">
-        <div className="col-span-12 lg:col-span-6">
+      {/* Title block — a paper plate laid over the wall; the wall stays hoverable around it */}
+      <div className="pointer-events-none mx-auto flex w-full max-w-[1440px] flex-1 items-end px-3 pb-3 pt-[30dvh] md:px-10 md:py-10 lg:items-center lg:px-14">
+        <div
+          className="pointer-events-auto w-full max-w-[38rem] border p-6 md:p-10"
+          style={{ background: "var(--paper)", borderColor: "var(--ink)" }}
+        >
           <div
             className="mb-6 inline-flex items-center gap-3"
             style={{
@@ -59,14 +59,14 @@ export function Hero() {
             }}
           >
             <span style={{ width: 24, height: 1, background: "var(--ink)" }} aria-hidden />
-            Urbanist · Problem solver
+            Urbanist · AI Strategist
           </div>
 
           <h1
             className="leading-[var(--lh-display)]"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(3rem, 7vw, 8rem)",
+              fontSize: "clamp(2.75rem, 5.2vw, 5.25rem)",
               letterSpacing: "-0.035em",
               textWrap: "balance" as React.CSSProperties["textWrap"],
               color: "var(--ink)",
@@ -79,14 +79,14 @@ export function Hero() {
             className="mt-5 max-w-[24ch]"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(1.5rem, 2.6vw, 2.25rem)",
+              fontSize: "clamp(1.375rem, 2vw, 1.75rem)",
               lineHeight: 1.12,
               letterSpacing: "-0.02em",
               color: "var(--ink)",
             }}
           >
-            Urban planner for a sustainable built environment. GIS, code and AI
-            get me there faster.
+            Urbanist and AI strategist for a sustainable built environment.
+            Engineer by training.
           </p>
 
           <p
@@ -156,17 +156,12 @@ export function Hero() {
             </a>
           </div>
         </div>
-
-        {/* Right column: hero plate */}
-        <div className="col-span-12 flex flex-col gap-4 lg:col-span-6">
-          <HeroPlate />
-        </div>
       </div>
 
       {/* Bottom ruled marquee */}
       <div
         className="overflow-hidden border-t border-b py-2"
-        style={{ borderColor: "var(--rule)" }}
+        style={{ background: "var(--paper)", borderColor: "var(--ink)" }}
       >
         <span
           ref={labelRef}
@@ -178,7 +173,7 @@ export function Hero() {
             color: "var(--ink-3)",
           }}
         >
-          URBAN PLANNER · SUSTAINABLE BUILT ENVIRONMENT · CIVIL ENG + SPATIAL PLANNING + URBAN DESIGN + AI ·
+          URBANIST · AI STRATEGIST · SUSTAINABLE BUILT ENVIRONMENT · CIVIL ENG + SPATIAL PLANNING + URBAN DESIGN + AI ·
         </span>
       </div>
     </section>
